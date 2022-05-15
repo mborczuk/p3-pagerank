@@ -7,7 +7,7 @@
 
   <body>
     <h1>
-        PageRank
+        PageRank - by Michael Borczuk and Shyne Choi
     </h1>
     <h2>
       What is PageRank?
@@ -25,7 +25,14 @@
         Markov Chains in PageRank
     </h2>
     <p>
-        Bacon ipsum dolor amet corned beef kevin beef pig porchetta picanha buffalo. Corned beef short loin shoulder strip steak t-bone pastrami turkey brisket. Tongue pig ham hock flank hamburger pork, turducken shank kielbasa spare ribs ribeye. Doner alcatra shank shoulder short ribs andouille brisket sirloin. Shankle alcatra venison turkey meatball. Venison chislic shoulder, pork belly frankfurter short ribs turkey. Ball tip beef ribs filet mignon, venison spare ribs cow ham rump capicola pork belly burgdoggen short ribs.
+        A Markov Chain is a way of modeling states and the probability of switching between states. An important thing to note is that the node (or state) you came from doesn't factor in to this system; only your destination matters.
+    </p>
+    <img src="images/markov chain.png" width="200" height="200"></img>
+    <p>
+        In the above example, the state can either switch (from A to B or B to A) or stay where it is (at A or B), leading to a total of 4 states.
+    </p>
+    <p>
+        PageRank is an example of a Markov Chain. Each page is a state, and the probabilities of a surfer landing on pages are the links between the states. These probabilities are used to calculate the each page's rank.
     </p>
     <h2>
         How does it work?
@@ -42,19 +49,33 @@
     <h4>
         Rank Sinks
     </h4>
+    <img src="images/rank sink.png" width="400" height="200"></img>
     <p>
-        Bacon ipsum dolor amet corned beef kevin beef pig porchetta picanha buffalo. Corned beef short loin shoulder strip steak t-bone pastrami turkey brisket. Tongue pig ham hock flank hamburger pork, turducken shank kielbasa spare ribs ribeye. Doner alcatra shank shoulder short ribs andouille brisket sirloin. Shankle alcatra venison turkey meatball. Venison chislic shoulder, pork belly frankfurter short ribs turkey. Ball tip beef ribs filet mignon, venison spare ribs cow ham rump capicola pork belly burgdoggen short ribs.
+        In the image above, we have pages that link to each other in a circular pattern. This is called a <em>rank sink</em>.
+        <br>
+        <br>
+        To show why this is an issue, let's assign the first page a rank of x. The first page will pass all of its rank to the second page, giving the second page a rank of x. The second page follows suit, passing its rank to the third page. Finally, the third page passes its rank of x back to the first page. However, the first page already has a rank, so we sum the new rank with the existing rank, giving us a rank of 2x. This process will repeat infinitely, giving each page infinite rank. That kinda breaks the algorithm.
+        <br>
+        <br>
+        <strong>Solution: </strong>Introduce a new value, called E. This value is the probability that a surfer will jump to a completely random page, since they will probably get bored of viewing the same pages in the rank sink over and over again. Use the E value in the calculation of the ranks.
     </p>
     <h4>
         Dangling Links
     </h4>
+    <img src="images/dangling link.png" width="400" height="200"></img>
     <p>
-        Bacon ipsum dolor amet corned beef kevin beef pig porchetta picanha buffalo. Corned beef short loin shoulder strip steak t-bone pastrami turkey brisket. Tongue pig ham hock flank hamburger pork, turducken shank kielbasa spare ribs ribeye. Doner alcatra shank shoulder short ribs andouille brisket sirloin. Shankle alcatra venison turkey meatball. Venison chislic shoulder, pork belly frankfurter short ribs turkey. Ball tip beef ribs filet mignon, venison spare ribs cow ham rump capicola pork belly burgdoggen short ribs.
+        In the image above, page D has no links pointing out of it. A link to a page like this is called a <em>dangling link</em>.
+        <br>
+        <br>
+        This poses an issue for the algorithm, since it is assumes that every page has at least one link going out of it.
+        <br>
+        <br>
+        <strong>Solution: </strong>Remove these pages from the calculations, calculate the rest of the ranks, add the pages back, and then recalculate the ranks.
     </p>
     <h2>
         Breaking PageRank (Advertisements)
     </h2>
-    <p>Bacon ipsum dolor amet corned beef kevin beef pig porchetta</p>
+    <p>PageRank is hard to break, since it is difficult to get other sites to link to yours. There is one great way to do this, however: paying for advertisements. This "exploit" of the algorithm has nothing to do with a vulnerability of the algorithm itself, though, meaning that PageRank is still relatively unbreakable.</p>
     <h2>
         Search Engines (Before Google)
     </h2>
@@ -62,10 +83,10 @@
         Bacon ipsum dolor amet corned beef kevin beef pig porchetta
     </p>
     <h2>
-        Google
+        <span style="color: blue">G</span><span style="color: red">o</span><span style="color: yellow">o</span><span style="color: blue">g</span><span style="color: green">l</span><span style="color: red">e</span>
     </h2>
     <p>
-        Created to test PageRank.
+        First created to test PageRank, Google is now the most popular search engine.
     </p>
     <h3>
         Google's First Server
@@ -80,31 +101,34 @@
         PageRank
     </h4>
     <p>
-        Bacon ipsum dolor amet corned beef kevin beef pig porchetta
+        You can learn about PageRank <a href="./p3.html">here</a>.
     </p>
     <h4>
         Understanding the Query
     </h4>
     <p>
-        Bacon ipsum dolor amet corned beef kevin beef pig porchetta
+        Words that are spelled the same can have different meanings in different contexts.
+        <br>
+        <br>
+        For example, the word order can mean to make a request for something or to arrange something.
     </p>
     <h4>
         Keyword Matching
     </h4>
     <p>
-        Bacon ipsum dolor amet corned beef kevin beef pig porchetta
+       The more times your search query appears in any text on the page, the higher its rank will be.
     </p>
     <h4>
         Webpage Usability
     </h4>
     <p>
-        Bacon ipsum dolor amet corned beef kevin beef pig porchetta
+        How fast a page loads, how desktop/mobile friendly a page is, and how well it works in different browsers all factor into a page's rank.
     </p>
     <h4>
         Your Data
     </h4>
     <p>
-        Bacon ipsum dolor amet corned beef kevin beef pig porchetta
+        Search results are influenced by previous searches.
     </p>
   </body>
 
