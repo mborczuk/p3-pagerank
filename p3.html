@@ -19,7 +19,7 @@
         Gaussian Elimination in PageRank
     </h2>
     <p>
-        Bacon ipsum dolor amet corned beef kevin beef pig porchetta picanha buffalo. Corned beef short loin shoulder strip steak t-bone pastrami turkey brisket. Tongue pig ham hock flank hamburger pork, turducken shank kielbasa spare ribs ribeye. Doner alcatra shank shoulder short ribs andouille brisket sirloin. Shankle alcatra venison turkey meatball. Venison chislic shoulder, pork belly frankfurter short ribs turkey. Ball tip beef ribs filet mignon, venison spare ribs cow ham rump capicola pork belly burgdoggen short ribs.
+        We typically see this as a way to solve systems of equations. Gaussian Elimination will be used to reduce a matrix into row echelon form using three types of elementary row operations: switching two rows, multiplying a row by a nonzero number, and adding a multiple of a row to another.
     </p>
     <h2>
         Markov Chains in PageRank
@@ -41,7 +41,14 @@
         Initial Algorithm + Example
     </h3>
     <p>
-        Bacon ipsum dolor amet corned beef kevin beef pig porchetta picanha buffalo. Corned beef short loin shoulder strip steak t-bone pastrami turkey brisket. Tongue pig ham hock flank hamburger pork, turducken shank kielbasa spare ribs ribeye. Doner alcatra shank shoulder short ribs andouille brisket sirloin. Shankle alcatra venison turkey meatball. Venison chislic shoulder, pork belly frankfurter short ribs turkey. Ball tip beef ribs filet mignon, venison spare ribs cow ham rump capicola pork belly burgdoggen short ribs.
+        This algorithm starts by treating all pages equal: assigning all of the pages a probability of 1/N/
+        Then update the rank of each page by adding to it the weights of the pages linking to it divided by the number of links from that referring page.
+        If a page has no outward links, we can redistribute its rank to other pages. This will continue until the ranks of all pages stabilize.
+    </p>
+    <img src="images/example.JPG" width="200" height="200"></img>
+    <p>
+        In the simplified web above, we see two arrows leading to the highlighted upper right page. The one labeled 50 comes from a 100 weighted page, but because it has two links coming out of it, this 100 is divided by 2 before being added. The arrow labeled 3 works similarly: it comes from the 9 weighted page with three links coming out of it.
+        If we add these two additions 50 + 3, we get a weight of 53.
     </p>
     <h3>
         Problems with Initial Algorithm + Solutions
@@ -80,8 +87,17 @@
         Search Engines (Before Google)
     </h2>
     <p>
-        Bacon ipsum dolor amet corned beef kevin beef pig porchetta
+        Before Google, there were a couple other search engines.
     </p>
+    <ul>
+      <li>Webcrawler: pretty much the oldest search engine still active.</li>
+      <li>Lycos: started off as a university project, and the creator decided to turn it into a company</li>
+      <li>Altavista: a fully searchable, full-text database with a clean and easy to use interface</li>
+      <li>Excite: one of the first to provide more than just searching, there were portals for weather, news, email, instant messaging, stock quotes, as well as a customizable homepage</li>
+      <li>Yahoo: the most well-known search engine before google</li>
+      <li>Dogpile: memorable for its name, today it aggregates results from Google, Yahoo, and Yandex</li>
+      <li>Ask Jeeves: its Q&A format was very popular, and the mascot - Jeeves the Butler - certainly added to the popularity</li>
+    </ul>
     <h2>
         <span style="color: blue">G</span><span style="color: red">o</span><span style="color: yellow">o</span><span style="color: blue">g</span><span style="color: green">l</span><span style="color: red">e</span>
     </h2>
@@ -92,7 +108,7 @@
         Google's First Server
     </h3>
     <p>
-        Bacon ipsum dolor amet corned beef kevin beef pig porchetta
+        The largest hard drives available at that time were 4GB, and after 40GB there was a small amount of money left. They ended up building the case out of LEGO blocks, plastic, and case fans.
     </p>
     <h3>
         Google's Algorithm Now
